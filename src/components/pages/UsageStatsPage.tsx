@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import GenericTemplate from "../templates/GenericTemplate";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -10,34 +10,37 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+// API周りの設定
+import { UsageData } from '../../common/models';
+import { getUsage } from '../../actions';
+
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
 });
 
-const createData = (
-  name: string,
-  adrress: string,
-  usage: number,
-  sum: number
-) => {
-  return { name, adrress, usage, sum };
-};
-
-const rows = [
-  createData("田中太郎", "t.taro@example.com", 20000, 120080),
-  createData("山田花子", "y.hanako@example.com", 4000, 48000),
-  createData("山本良雄", "y.yoshio@example.com", 50000, 360000),
-  createData("齋藤圭介", "s.keisuke@example.com", 12000, 56300),
-  createData("白鳥香苗", "s.kanae@example.com", 12500, 180000),
-];
 
 const UsageStatsPage: React.FC = () => {
   const classes = useStyles();
+  const [rows, setRows] = useState<UsageData[]>([]);
+  
+  const apiRes = async() => {
+    const res = await getUsage();
+    if(res.isSuccess) {
+      console.log(typeof res.data);
+      setRows(res.data===null? []: res.data);
+    }
+  }
+  
+  //　ページロード時初回呼び出し
+  useEffect(() => {
+    apiRes();
+  },[]);
   
   return (
     <GenericTemplate title="料金集計ページ">
+      <button onClick={apiRes}>更新</button>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -56,7 +59,7 @@ const UsageStatsPage: React.FC = () => {
                 </TableCell>
                 <TableCell align="right">{row.adrress}</TableCell>
                 <TableCell align="right">{row.usage}</TableCell>
-                <TableCell align="right">{row.sum}</TableCell>
+                <TableCell align="right">{row.usage_all}</TableCell>
               </TableRow>
             ))}
           </TableBody>

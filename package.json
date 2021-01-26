@@ -11,6 +11,8 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react-dom": "^16.9.8",
+    "axios": "^0.21.1",
+    "json-server": "^0.16.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
@@ -19,10 +21,11 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "yarn mock & react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "mock": "./node_modules/json-server/lib/cli/bin.js --middlewares ./mock/json-server/middleware/proxy.js --routes ./mock/json-server/routes.json --watch ./mock/json-server/api.json -p 3001"
   },
   "eslintConfig": {
     "extends": [

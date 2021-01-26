@@ -7,13 +7,15 @@ import UsageStatsPage from "./components/pages/UsageStatsPage";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Switch>
-        <Route path="/" component={HomePage} exact />
-        <Route path="/products" component={ProductPage} exact />
-        <Route path="/usage-stats" component={UsageStatsPage} exact />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route path="/" component={HomePage} exact />
+          <Route path="/products" component={ProductPage} exact />
+          <Route path="/usage-stats" component={UsageStatsPage} exact />
+        </Switch>
+      </Router>
+    </>
   );
 };
 

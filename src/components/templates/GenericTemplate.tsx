@@ -86,7 +86,6 @@ const GenericTemplate: React.FC<GenericTemplateProps> = ({
   const classes = useStyles();
   const [open, setOpen] = useState(true);
   const [prefersDarkMode, setPrefersDarkMode] = useState(localStorage.getItem("prefersDarkMode") === "true");
-  console.log(prefersDarkMode);
   const theme = createMuiTheme(ColorTheme(prefersDarkMode));
 
   return (
