@@ -4,7 +4,6 @@ import {
   createStyles, 
   Theme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
-import DrawerProps from '@material-ui/core/Drawer'
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
@@ -19,7 +18,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 export interface SideBarProps  {
   openState: [boolean, React.Dispatch<boolean>],
-  drawerVariant: typeof DrawerProps.arguments,
+  drawerVariant: "permanent" | "persistent" | "temporary",//typeof DrawerProps.arguments,
   drawerPaper: string
 } 
 

@@ -25,22 +25,22 @@ const UsageStatsPage: React.FC = () => {
   const classes = useStyles();
   const [rows, setRows] = useState<UsageData[]>([]);
   
-  const apiRes = async() => {
+  const apiReq = async() => {
     const res = await getUsage();
     if(res.isSuccess) {
-      console.log(typeof res.data);
-      setRows(res.data===null? []: res.data);
+      const data: UsageData[] = res.data===null ?[] :res.data.result;
+      setRows(data);
     }
   }
   
   //　ページロード時初回呼び出し
   useEffect(() => {
-    apiRes();
+    apiReq();
   },[]);
   
   return (
     <GenericTemplate title="料金集計ページ">
-      <button onClick={apiRes}>更新</button>
+      <button onClick={apiReq}>更新</button>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>

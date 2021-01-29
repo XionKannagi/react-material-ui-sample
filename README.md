@@ -1,6 +1,11 @@
 # react-material-ui-sample  
 以下、忘れないためのメモ
 
+## React + TypeScript + Material-UIを使ってサンプルアプリ  
+Atomic　Designを意識してつくってみた。  
+※全てが初心者でなんとなくやってしまったのであまりAtomicDesignを取り入れたメリットがなくなってしまった。  
+
+これを元に、再度AtomicDesignについて考え直していこうと考えている。  
 
 ## 利用しているもの
 これを使うに当たって使ったものは以下
@@ -8,13 +13,7 @@
 - React
 - Material-UI
 - Json-server
-- react-Redux←今後使いたい。 
-
-## React + TypeScript + Material-UIを使ってサンプルアプリ  
-Atomic　Designを意識してつくってみた。  
-※全てが初心者でなんとなくやってしまったのであまりAtomicDesignを取り入れたメリットがなくなってしまった。  
-
-これを元に、再度AtomicDesignについて考え直していこうと考えている。  
+- react-redux←今後使いたい。 
 
 ## Features
 
@@ -28,7 +27,9 @@ Atomic　Designを意識してつくってみた。
 | 料金集計ページのAPI利用 | ページリロード時、更新ボタン押下時にリストを更新する機能 |  
 
 ## 今後の進め方
-適当なAPIを作ってデータ処理〜表示を行う。 ←完了 
+適当なAPIを作ってデータ処理〜表示を行う。 ←完了   
+APIの向き先を環境ごとに切り替える。　←完了（本番:.env, ローカル:.env.development）
+```※念のため.envは対象外ファイルにする。```
 処理部はできるだけComponentと切り離してメンテナンス性を考えた作りにしたい。  
 よりCSS等の理解を深めたいためできればコンポーネントを増やしていきたい。  
 

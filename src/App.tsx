@@ -7,7 +7,7 @@ import UsageStatsPage from "./components/pages/UsageStatsPage";
 
 const App: React.FC = () => {
   return (
-    <>
+    <React.StrictMode>
       <Router>
         <Switch>
           <Route path="/" component={HomePage} exact />
@@ -15,7 +15,7 @@ const App: React.FC = () => {
           <Route path="/usage-stats" component={UsageStatsPage} exact />
         </Switch>
       </Router>
-    </>
+    </React.StrictMode>
   );
 };
 

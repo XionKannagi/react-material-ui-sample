@@ -99,7 +99,7 @@ const GenericTemplate: React.FC<GenericTemplateProps> = ({
           darkModeState={[prefersDarkMode, setPrefersDarkMode]}
         />
         <SideBar
-          drawerVariant="parmanent"
+          drawerVariant='permanent'
           drawerPaper={clsx(classes.drawerPaper, !open && classes.drawerPaperClose)}
           openState={[open, setOpen]}
         />

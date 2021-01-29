@@ -1,10 +1,20 @@
 {
-  "usage": [
-    {"id": 1, "name":"田中太郎", "adrress": "t.taro@example.com", "usage": 20000, "usage_all": 120080},
-    {"id": 2, "name":"山田花子", "adrress": "y.hanako@example.com", "usage":  4000, "usage_all": 48000},
-    {"id": 3, "name":"山本良雄", "adrress": "y.yoshio@example.com", "usage":  50000, "usage_all": 360000},
-    {"id": 4, "name":"齋藤圭介", "adrress": "s.keisuke@example.com", "usage":  12000, "usage_all": 56300},
-    {"id": 5, "name":"白鳥香苗", "adrress": "s.kanae@example.com", "usage":  12500, "usage_all": 180000},
-    {"id": 6, "name":"池田エライザ", "adrress": "i.eraiza@example.com", "usage":  123400, "usage_all": 567800}
-  ]
+  "usages": { 
+    "result": [
+      {"id": 1, "name":"田中太郎", "adrress": "t.taro@example.com", "usage": 20000, "usage_all": 120080},
+      {"id": 2, "name":"山田花子", "adrress": "y.hanako@example.com", "usage":  4000, "usage_all": 48000},
+      {"id": 3, "name":"山本良雄", "adrress": "y.yoshio@example.com", "usage":  50000, "usage_all": 360000},
+      {"id": 4, "name":"齋藤圭介", "adrress": "s.keisuke@example.com", "usage":  12000, "usage_all": 56300},
+      {"id": 5, "name":"白鳥香苗", "adrress": "s.kanae@example.com", "usage":  12500, "usage_all": 180000},
+      {"id": 6, "name":"池田エライザ", "adrress": "i.eraiza@example.com", "usage":  123400, "usage_all": 567800}
+    ]
+  },
+  "usage": {
+    "result": [
+      {"id": 1, "name":"田中太郎", "adrress": "t.taro@example.com", "usage": 20000, "usage_all": 120080},
+      {"id": 2, "name":"山田花子", "adrress": "y.hanako@example.com", "usage":  4000, "usage_all": 48000},
+      {"id": 3, "name":"山本良雄", "adrress": "y.yoshio@example.com", "usage":  50000, "usage_all": 360000},
+      {"id": 4, "name":"齋藤圭介", "adrress": "s.keisuke@example.com", "usage":  12000, "usage_all": 56300}
+    ]
+  }
 }
