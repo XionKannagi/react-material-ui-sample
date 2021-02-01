@@ -1,5 +1,6 @@
 {
   "usages": { 
+    "code": 200,
     "result": [
       {"id": 1, "name":"田中太郎", "adrress": "t.taro@example.com", "usage": 20000, "usage_all": 120080},
       {"id": 2, "name":"山田花子", "adrress": "y.hanako@example.com", "usage":  4000, "usage_all": 48000},
@@ -10,6 +11,7 @@
     ]
   },
   "usage": {
+    "code": 200,
     "result": [
       {"id": 1, "name":"田中太郎", "adrress": "t.taro@example.com", "usage": 20000, "usage_all": 120080},
       {"id": 2, "name":"山田花子", "adrress": "y.hanako@example.com", "usage":  4000, "usage_all": 48000},
