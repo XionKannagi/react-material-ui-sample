@@ -13,13 +13,6 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
 
-export interface CustomAppBarProps  {
-  openState: [boolean, React.Dispatch<boolean>],
-  darkModeState:[boolean, React.Dispatch<boolean>],
-  appBarPosition: typeof AppBarProps.arguments,
-  appBarClassName: string,
-} 
-
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     toolbar: {
@@ -49,6 +42,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   })
 );
+
+export interface CustomAppBarProps  {
+  openState: [boolean, React.Dispatch<boolean>],
+  darkModeState:[boolean, React.Dispatch<boolean>],
+  appBarPosition: typeof AppBarProps.arguments,
+  appBarClassName: string,
+} 
 
 const CustomAppBar: React.FC<CustomAppBarProps> = (props) => {
   const appBarPosition = props.appBarPosition;
@@ -102,8 +102,6 @@ const CustomAppBar: React.FC<CustomAppBarProps> = (props) => {
   );
 }
 
-CustomAppBar.defaultProps = {
-
-}
+CustomAppBar.defaultProps = {}
 
 export default CustomAppBar;

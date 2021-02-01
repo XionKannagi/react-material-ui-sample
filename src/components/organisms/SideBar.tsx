@@ -7,20 +7,12 @@ import Drawer from "@material-ui/core/Drawer";
 import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
-import { Link } from "react-router-dom";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import HomeIcon from "@material-ui/icons/Home";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
-import ListItem from "@material-ui/core/ListItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
 
-export interface SideBarProps  {
-  openState: [boolean, React.Dispatch<boolean>],
-  drawerVariant: "permanent" | "persistent" | "temporary",//typeof DrawerProps.arguments,
-  drawerPaper: string
-} 
+import PageItem from "../molecules/PageItem";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -49,12 +41,14 @@ const useStyles = makeStyles((theme: Theme) =>
     title: {
       flexGrow: 1,
     },
-    link: {
-      textDecoration: "none",
-      color: theme.palette.text.secondary,
-    },
   })
 );
+
+export interface SideBarProps  {
+  openState: [boolean, React.Dispatch<boolean>],
+  drawerVariant: "permanent" | "persistent" | "temporary",//typeof DrawerProps.arguments,
+  drawerPaper: string
+}
 
 const SideBar: React.FC<SideBarProps> = (props) => {
   const drawerVariant = props.drawerVariant;
@@ -80,37 +74,26 @@ const SideBar: React.FC<SideBarProps> = (props) => {
     </div>
     <Divider />
     <List>
-      <Link to="/" className={classes.link}>
-        <ListItem button>
-          <ListItemIcon>
-            <HomeIcon />
-          </ListItemIcon>
-          <ListItemText primary="トップページ" />
-        </ListItem>
-      </Link>
-      <Link to="/products" className={classes.link}>
-        <ListItem button>
-          <ListItemIcon>
-            <ShoppingCartIcon />
-          </ListItemIcon>
-          <ListItemText primary="商品ページ" />
-        </ListItem>
-      </Link>
-      <Link to="/usage-stats" className={classes.link}>
-        <ListItem button>
-          <ListItemIcon>
-            <MonetizationOnIcon />
-          </ListItemIcon>
-          <ListItemText primary="料金集計ページ" />
-        </ListItem>
-      </Link>
+      <PageItem 
+        linkTo="/"
+        pageTitle="ホームページ">
+        <HomeIcon />
+      </PageItem>
+      <PageItem
+        linkTo="/products"
+        pageTitle="商品名ページ">
+        <ShoppingCartIcon />
+      </PageItem>
+      <PageItem 
+        linkTo="/usage-stats"
+        pageTitle="料金集計ページ">
+        <MonetizationOnIcon />
+      </PageItem>
     </List>
   </Drawer>
   );
 }
 
-SideBar.defaultProps = {
-
-}
+SideBar.defaultProps = {}
 
 export default SideBar;

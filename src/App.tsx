@@ -1,6 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 
+// Pages
 import HomePage from "./components/pages/HomePage";
 import ProductPage from "./components/pages/ProductPage";
 import UsageStatsPage from "./components/pages/UsageStatsPage";

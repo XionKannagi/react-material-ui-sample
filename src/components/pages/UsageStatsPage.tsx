@@ -1,8 +1,8 @@
 import React, { useState, useEffect }  from "react";
 import { useDispatch, useSelector } from "react-redux";
-import GenericTemplate from "../templates/GenericTemplate";
-
 import { makeStyles } from "@material-ui/core/styles";
+
+// latout
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -10,6 +10,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import GenericTemplate from "../templates/GenericTemplate";
+import RectButton from "../atoms/RectButton";
 
 // API周りの設定
 //import { UsageData } from '../../common/models';
@@ -50,7 +52,7 @@ const UsageStatsPage: React.FC = (props) => {
   
   return (
     <GenericTemplate title="料金集計ページ">
-      <button onClick={() => dispatch(fetchAsync())}>更新</button>
+      <RectButton onClick={() => dispatch(fetchAsync())} color="default">更新</RectButton>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -78,5 +80,6 @@ const UsageStatsPage: React.FC = (props) => {
     </GenericTemplate>
   );
 };
+
 
 export default UsageStatsPage;

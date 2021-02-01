@@ -11,10 +11,10 @@ import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 
-import ColorTheme from '../../common/Theme';
-import AppBar from '../organisms/AppBar';
-import SideBar from '../organisms/SideBar';
-import Copyright from '../atoms/Copyright';
+import ColorTheme from "../../common/Theme";
+import AppBar from "../organisms/AppBar";
+import SideBar from "../organisms/SideBar";
+import Copyright from "../atoms/Copyright";
 
 const drawerWidth = 240;
 
@@ -92,7 +92,7 @@ const GenericTemplate: React.FC<GenericTemplateProps> = ({
     <ThemeProvider theme={theme}>
       <div className={classes.root}>
         <CssBaseline />
-        <AppBar 
+        <AppBar
           appBarPosition="absolute"
           appBarClassName={clsx(classes.appBar, open && classes.appBarShift)}
           openState={[open, setOpen]}
