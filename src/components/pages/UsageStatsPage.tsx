@@ -1,4 +1,5 @@
 import React, { useState, useEffect }  from "react";
+import { useDispatch, useSelector } from "react-redux";
 import GenericTemplate from "../templates/GenericTemplate";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,8 +12,10 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
 // API周りの設定
-import { UsageData } from '../../common/models';
-import { getUsage } from '../../actions';
+//import { UsageData } from '../../common/models';
+//import { getUsageData } from '../../api';
+import { RootState, AppDispatch } from "../../store";
+import { fetchAsync }  from "../../slices/UsageDataSlice";
 
 const useStyles = makeStyles({
   table: {
@@ -20,27 +23,34 @@ const useStyles = makeStyles({
   },
 });
 
-
-const UsageStatsPage: React.FC = () => {
+const UsageStatsPage: React.FC = (props) => {
   const classes = useStyles();
-  const [rows, setRows] = useState<UsageData[]>([]);
   
-  const apiReq = async() => {
-    const res = await getUsage();
-    if(res.isSuccess) {
-      const data: UsageData[] = res.data===null ?[] :res.data.result;
-      setRows(data);
-    }
-  }
+  /* setStateでのデータ更新をReduxToolKitでの実装に変更 */
+  // const [usageData, setUsageData] = useState<UsageData[]>([]);
+  // const apiReq = async () => {
+  //   const res = await getUsageData();
+  //   if(res.isSuccess) {
+  //     const data: UsageData[] = res.data===null ?[] :res.data.result;
+  //     setUsageData(data);
+  //   }
+  // }
+
+  const usageData = useSelector((state: RootState) => state.usageData.payload);
+  //const loading = useSelector((state: RootState) => state.usageData.loading);
+  //const error = useSelector((state: RootState) => state.usageData.error);
+
+  const dispatch: AppDispatch = useDispatch();
   
   //　ページロード時初回呼び出し
   useEffect(() => {
-    apiReq();
-  },[]);
+    //apiReq()
+    dispatch(fetchAsync());
+  },[dispatch]);
   
   return (
     <GenericTemplate title="料金集計ページ">
-      <button onClick={apiReq}>更新</button>
+      <button onClick={() => dispatch(fetchAsync())}>更新</button>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
@@ -52,7 +62,7 @@ const UsageStatsPage: React.FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
+            {usageData.map((row) => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
                   {row.name}
